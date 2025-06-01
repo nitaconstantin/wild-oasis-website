@@ -34,42 +34,7 @@
 
 .rdp {
   --rdp-cell-size: 12px !important;
-  --rdp-accent-color: #b78343 !important;
+  --rdp-accent-color: theme("colors.accent.500") !important;
   --rdp-background-color: theme("colors.accent.600") !important;
   margin: 0 !important;
-}
-
-.rdp-selected {
-  background: theme("colors.accent.600") !important;
-  border: none;
-}
-
-.rdp-selected .rdp-day_button {
-  border: none !important;
-}
-.rdp-range_start .rdp-day_button,
-.rdp-range_end .rdp-day_button {
-  background: theme("colors.accent.600") !important;
-}
-
-.rdp-weekdays {
-  background: theme("colors.accent.500") !important;
-  color: #fff;
-}
-
-.rdp-chevron {
-  fill: theme("colors.accent.500") !important;
-}
-
-.rdp-dropdown option {
-  color: theme("colors.accent.500") !important;
-}
-
-.rdp-dropdown option:hover {
-  background: theme("colors.accent.500") !important;
-  color: theme("colors.primary.50") !important;
-}
-
-.rdp-dropdown option:disabled {
-  color: theme("colors.primary.500") !important;
 }

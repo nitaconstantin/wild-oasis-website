@@ -24,12 +24,12 @@ function ReservationCard({ booking, onDelete }) {
   } = booking;
 
   return (
-    <div className="flex border border-primary-800">
-      <div className="relative h-32 aspect-square">
+    <div className="flex flex-col md:flex-row border border-primary-800">
+      <div className="relative h-48 md:h-32 aspect-square">
         <Image
           src={image}
           alt={`Cabin ${name}`}
-          className="object-cover border-r border-primary-800"
+          className=" object-fit md:object-cover border-r border-primary-800"
           fill
         />
       </div>
@@ -70,12 +70,12 @@ function ReservationCard({ booking, onDelete }) {
         </div>
       </div>
 
-      <div className="flex flex-col border-l border-primary-800 w-[100px]">
+      <div className="flex md:flex-col border-l border-primary-800 w-full md:w-[100px]">
         {!isPast(startDate) ? (
           <>
             <Link
               href={`/account/reservations/edit/${id}`}
-              className="group flex items-center gap-2 uppercase text-xs font-bold text-primary-300 border-b border-primary-800 flex-grow px-3 hover:bg-accent-600 transition-colors hover:text-primary-900"
+              className="group flex justify-center md:justify-start items-center h-[50px] md:h-auto gap-2 uppercase text-xs font-bold text-primary-300 border-b border-primary-800 flex-grow px-3 hover:bg-accent-600 transition-colors hover:text-primary-900"
             >
               <PencilSquareIcon className="h-5 w-5 text-primary-600 group-hover:text-primary-800 transition-colors" />
               <span className="mt-1">Edit</span>
