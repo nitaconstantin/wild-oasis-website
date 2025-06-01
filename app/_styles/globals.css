@@ -38,3 +38,30 @@
   --rdp-background-color: theme("colors.accent.600") !important;
   margin: 0 !important;
 }
+
+.rdp-weekdays {
+  background: theme("colors.accent.500") !important;
+}
+.rdp-range_middle,
+.rpd-day .rpd-day_button,
+.rpd-day .rpd-day_button {
+  background: theme("colors.accent.600") !important;
+  color: theme("colors.primary.50") !important;
+  border: none !important;
+}
+.rdp-range_start,
+.rdp-range_end {
+  background: theme("colors.accent.600") !important;
+}
+.rdp-range_start .rdp-day_button,
+.rdp-range_end .rdp-day_button {
+  background-color: theme("colors.accent.600") !important;
+  border: none !important;
+}
+
+.rdp-selected .rdp-day_button {
+  background: theme("colors.accent.600") !important;
+  color: theme("colors.primary.50") !important;
+  border: none !important;
+  border-radius: unset !important;
+}
