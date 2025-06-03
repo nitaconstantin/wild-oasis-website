@@ -13,7 +13,7 @@ function Logo() {
         quality={100}
         alt="The Wild Oasis logo"
       />
-      <span className="text-xl font-semibold text-primary-100">
+      <span className="hidden sm:block sm:text-sm md:text-base lg:text-lg font-semibold text-primary-100">
         The Wild Oasis
       </span>
     </Link>
