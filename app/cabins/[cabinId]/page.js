@@ -31,7 +31,7 @@ export default async function Page({ params }) {
   // const bookedDates = await getBookedDatesByCabinId(params.cabinId);
 
   return (
-    <div className="max-w-7xl mx-auto mt-8">
+    <div className="max-w-6xl mx-auto mt-8">
       <Cabin cabin={cabin} />
 
       <div>

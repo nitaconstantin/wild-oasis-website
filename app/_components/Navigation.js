@@ -1,82 +1,52 @@
-"use client";
-import { useEffect, useState } from "react";
 import Link from "next/link";
-import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
-import { usePathname } from "next/navigation";
+import { auth } from "../_lib/auth";
 
-export default function Navbar() {
-  const [isOpen, setIsOpen] = useState(false);
-
-  // 🔁 Close menu on route change
-
-  const pathname = usePathname(); // Detects route change
-
-  // Close menu on route change
-  useEffect(() => {
-    setIsOpen(false);
-  }, [pathname]);
-
+export default async function Navigation() {
+  const session = await auth();
+  console.log(session);
   return (
-    <>
-      <nav className=" z-20 md:relative w-3/4">
-        <div className="max-w-7xl md:mx-auto">
-          <div className="flex justify-end h-16 items-center w-full">
-            <div className="hidden md:flex space-x-6 w-3/4 h-full items-center justify-between">
-              <Link
-                className="text-primary-50 hover:text-accent-600 text-xl"
-                href="/"
-              >
-                Home
-              </Link>
-              <Link
-                className="text-primary-50 hover:text-accent-600 text-xl"
-                href="/cabins"
-              >
-                Cabins
-              </Link>
-              <Link
-                className="text-primary-50 hover:text-accent-600 text-xl"
-                href="/account"
-              >
-                Guest area
-              </Link>
-            </div>
-            <div className="md:hidden w-[24px] h-[24px]">
-              <button
-                onClick={() => setIsOpen(!isOpen)}
-                className="focus:outline-none w-[24px] text-primary-50"
-                aria-label="Toggle menu"
-              >
-                {isOpen ? <XMarkIcon /> : <Bars3Icon />}
-              </button>
-            </div>
-          </div>
-        </div>
-      </nav>
-
-      {isOpen && (
-        <div
-          className={`md:hidden p-4 space-y-2  z-20 md:relative  bg-primary-50 w-full ${
-            isOpen ? "absolute top-full" : ""
-          }`}
-        >
-          <Link href="/" className="block text-gray-700 hover:text-accent-600">
-            Home
-          </Link>
+    <nav className="z-10 text-xl">
+      <ul className="flex gap-16 items-center">
+        <li>
           <Link
             href="/cabins"
-            className="block text-gray-700 hover:text-accent-600"
+            className="hover:text-accent-400 transition-colors"
           >
             Cabins
           </Link>
+        </li>
+        <li>
           <Link
-            href="/account"
-            className="block text-gray-700 hover:text-accent-600"
+            href="/about"
+            className="hover:text-accent-400 transition-colors"
           >
-            Guest area
+            About
           </Link>
-        </div>
-      )}
-    </>
+        </li>
+        <li>
+          {session?.user?.image ? (
+            <Link
+              href="/account"
+              className="hover:text-accent-400 transition-colors flex items-center gap-4"
+            >
+              <img
+                src={session.user.image}
+                alt={session.user.name}
+                className="h-8 rounded-full"
+                referrerPolicy="no-referrer"
+              />
+              <span>{session.user.name}</span>
+            </Link>
+          ) : (
+            <Link
+              href="/account"
+              className="hover:text-accent-400 transition-colors"
+            >
+              Guest area
+            </Link>
+          )}
+        </li>
+      </ul>
+    </nav>
   );
 }
